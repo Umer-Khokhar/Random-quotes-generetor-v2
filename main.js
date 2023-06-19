@@ -23,3 +23,15 @@ genBtn.addEventListener('click', myFun)
 copyBtn.addEventListener('click', e => {
   navigator.clipboard.writeText(quotes.innerHTML)
 })
+
+speechBtn.addEventListener("click", (e) => {
+  const utterance = new SpeechSynthesisUtterance(
+    `${quotes.innerHTML}, by ${authorName.innerHTML}`
+  );
+  speechSynthesis.speak(utterance);
+});
+
+twitterBtn.addEventListener("click", (e) => {
+  let tweetUrl = `https://twitter.com/intent/tweet?url=${quotes.innerHTML}`;
+  window.open(tweetUrl, `_blank`);
+});
